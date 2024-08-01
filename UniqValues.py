@@ -489,8 +489,11 @@ def two_sample_test_df(X, Y, gamma=0.25, min_cnt=0,
     
     return counts
 ################################################################
-text1 = open('pride_and_prejudice.txt', 'r').read()
-text2 = open('sense_and_sensibility.txt', 'r').read()
+text1 = open('/Users/gideon/Desktop/project/processed_output/test_2022_reviews_adj_adv', 'r').read()
+text2 = open('/Users/gideon/Desktop/project/processed_output/test_2024_reviews_adj_adv', 'r').read()
+
+text1 = text1.replace("\n", " ")
+text2 = text2.replace("\n", " ")
   ################################   
 def clean_txt(text):
   text = re.sub(r'[^a-z0-9 -]', '', text.lower()) # lower case, only letters or digits
