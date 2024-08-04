@@ -1,5 +1,6 @@
-import pandas as pd
 import re
+
+import pandas as pd
 
 FULL_REVIEWS_FILE_PATH = r"C:\Degree\Courses\Research\ICLR review data\reviews_iclr_2018_2024_annotated.csv"
 ADJ_ADV_REVIEWS_FILE_PATH = r"C:\Degree\Courses\Research\ICLR review data\reviews_iclr_2018_2024_annotated_adj_adv.csv"
