@@ -22,9 +22,9 @@ def get_pvals(text1: str, text2: str) -> List[Tuple[str, np.float64]]:
 
     list1 = np.array([all_word_counts[k][0] for k in all_word_counts])
     list2 = np.array([all_word_counts[k][1] for k in all_word_counts])
-    pvals = TwoSampleHC.two_sample_pvals(list1, list2)
+    pvals = two_sample_hc.two_sample_pvals(list1, list2)
 
-    hctest = TwoSampleHC.HC(pvals)
+    hctest = two_sample_hc.HC(pvals)
     hc, pstar = hctest.HC()
 
     ##############
