@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 import numpy as np
 
-import TwoSampleHC
+import two_sample_hc
 
 
 def get_pvals(text1: str, text2: str) -> List[Tuple[str, np.float64]]:
