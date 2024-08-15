@@ -4,7 +4,7 @@ import pandas as pd
 
 FULL_REVIEWS_FILE_PATH = r"C:\Degree\Courses\Research\ICLR review data\reviews_iclr_2018_2024_annotated.csv"
 ADJ_ADV_REVIEWS_FILE_PATH = r"C:\Degree\Courses\Research\ICLR review data\reviews_iclr_2018_2024_annotated_adj_adv.csv"
-
+ADJ_ADV_SUB_FILE_PATH = r"C:\Degree\Courses\Research\ICLR review data\submissions_iclr_2018_2024_adj_adv.csv"
 
 def clean_txt(text):
     text = str(text)  # in case the data in the column is being read as another type
@@ -41,20 +41,20 @@ def extract_data_from_csv(input_file: str,
 
 
 def main():
-    extract_data_from_csv(FULL_REVIEWS_FILE_PATH,
-                          "processed_output/2022_reviews_all_words.txt",
-                          2022,
-                          text_col_id="review")
-    extract_data_from_csv(FULL_REVIEWS_FILE_PATH,
-                          "processed_output/2024_reviews_all_words.txt",
-                          2024,
-                          text_col_id="review")
-    extract_data_from_csv(ADJ_ADV_REVIEWS_FILE_PATH,
-                          "processed_output/2022_reviews_adj_adv.txt",
+    #extract_data_from_csv(FULL_REVIEWS_FILE_PATH,
+     #                     "processed_output/2022_reviews_all_words.txt",
+      #                    2022,
+       #                   text_col_id="review")
+   # extract_data_from_csv(FULL_REVIEWS_FILE_PATH,
+                     #     "processed_output/2024_reviews_all_words.txt",
+                      #    2024,
+                       #   text_col_id="review")
+    extract_data_from_csv(ADJ_ADV_SUB_FILE_PATH,
+                          "processed_output/2022_submissions_adj_adv.txt",
                           2022,
                           year_col_id="author")
-    extract_data_from_csv(ADJ_ADV_REVIEWS_FILE_PATH,
-                          "processed_output/2024_reviews_adj_adv.txt",
+    extract_data_from_csv(ADJ_ADV_SUB_FILE_PATH,
+                          "processed_output/2024_submissions_adj_adv.txt",
                           2024,
                           year_col_id="author")
 
