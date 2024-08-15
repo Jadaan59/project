@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from scipy.stats import binom, norm, poisson, beta
+from matplotlib import pyplot as plt
 
 class HC(object):
     """
@@ -379,6 +380,7 @@ def binom_var_test(c1, c2, sym=False, max_m=-1) :
     df_hist = binom_var_test_df(c1, c2, sym=sym, max_m=max_m)
     return df_hist.groupby('m').pval.mean()
 
+
 def two_sample_pvals(c1, c2, randomize=False,
      sym=False, alt='two-sided', ret_p=False):
 
@@ -482,3 +484,15 @@ def two_sample_test_df(X, Y, gamma=0.25, min_cnt=0,
     counts.loc[np.isnan(counts['pval']), ('thresh')] = False
     
     return counts
+
+
+def visualize_HCT(pvals, stbl=True, gamma=.3):
+    hc = HC(pvals, stbl=stbl)
+    hc.HCstar(gamma=gamma)
+
+    n_max = min(int(5 * hc._istar), hc._N)
+
+    plt.plot(hc._uu[:n_max], hc._zz[:n_max])
+    plt.vlines(x=hc._uu[hc._istar], ymin=0, ymax=max(hc._zz[:n_max]),
+               linestyles='dashed', color='red')
+    plt.show()
